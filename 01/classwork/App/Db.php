@@ -27,6 +27,18 @@ class Db
         return $res;
     }
 
+    public function query($sql)
+    {
+        $sth = $this->dbh->prepare($sql);
+        $res = $sth->execute();
+
+        if($res !== false) {
+            return $sth->fetchAll();
+        }
+
+        return [];
+    }
+
 
 }
 
