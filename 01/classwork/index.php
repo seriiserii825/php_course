@@ -2,8 +2,6 @@
 
 require_once __DIR__.'/autoload.php';
 
-$db = new \App\Db();
+$users = \App\Models\User::findAll();
 
-$res = $db->query('SELECT * FROM articles');
-
-var_dump($res);
+var_dump($users);
